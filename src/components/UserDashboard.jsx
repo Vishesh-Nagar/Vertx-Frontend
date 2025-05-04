@@ -52,7 +52,7 @@ const UserDashboard = () => {
 
     return (
         <div className="min-h-screen bg-black p-6">
-            <div className="max-w-4xl mx-auto bg-gray-900 shadow-lg rounded-xl p-8">
+            <div className="max-w-2xl mx-auto bg-gray-900 shadow-lg rounded-xl p-8">
                 <h1 className="text-3xl font-bold text-center mb-6 text-indigo-600">
                     Welcome back, {data.name}!
                 </h1>

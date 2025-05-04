@@ -29,10 +29,27 @@ function App() {
     }, []);
 
     const appStyle = {
-        backgroundColor: "#121212", // Dark background color
-        minHeight: "100vh", // Ensures it covers the full viewport height
-        color: "#ffffff", // Optional: Set text color to white for better contrast
+        backgroundColor: "#121212",
+        minHeight: "100vh",
+        color: "#ffffff",
     };
+
+    useEffect(() => {
+        const token = localStorage.getItem("token");
+
+        if (token) {
+            setIsLoggedIn(true);
+            const decodedToken = JSON.parse(atob(token.split(".")[1]));
+            if (decodedToken.role === "admin") {
+                setIsAdmin(true);
+            } else {
+                setIsAdmin(false);
+            }
+        } else {
+            setIsLoggedIn(false);
+            setIsAdmin(false);
+        }
+    }, []);
 
     return (
         <div style={appStyle}>

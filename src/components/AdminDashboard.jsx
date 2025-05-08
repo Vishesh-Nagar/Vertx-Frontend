@@ -19,7 +19,6 @@ const AdminDashboard = () => {
                 );
 
                 const result = await response.json();
-                console.log("Result from API:", result);
 
                 if (result) {
                     setUsers(result.users);
@@ -34,7 +33,7 @@ const AdminDashboard = () => {
 
     return (
         <div className="min-h-screen bg-gray-100 p-6">
-            <div className="max-w-7xl mx-auto bg-white shadow-lg rounded-xl p-8">
+            <div className="max-w-7xl mx-auto text-black bg-white shadow-lg rounded-xl p-8">
                 <h1 className="text-3xl font-bold text-center mb-6 text-indigo-600">
                     Admin Dashboard
                 </h1>

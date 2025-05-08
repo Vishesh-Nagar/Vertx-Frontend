@@ -57,57 +57,40 @@ function App() {
                 <Routes>
                     <Route path="/" element={<Register />} />
                     <Route path="/login" element={<Login />} />
-
                     <Route
                         path="/saved"
                         element={
-                            isLoggedIn && !isAdmin ? (
-                                <ProtectedRoute>
-                                    <Header />
-                                    <Savedpost />
-                                </ProtectedRoute>
-                            ) : (
-                                <Login />
-                            )
+                            <ProtectedRoute isLoggedIn={isLoggedIn} isAdmin={isAdmin} adminOnly={false}>
+                                <Header />
+                                <Savedpost />
+                            </ProtectedRoute>
                         }
                     />
                     <Route
                         path="/user-dashboard"
                         element={
-                            isLoggedIn && !isAdmin ? (
-                                <ProtectedRoute>
-                                    <Header />
-                                    <UserDashboard />
-                                </ProtectedRoute>
-                            ) : (
-                                <Login />
-                            )
+                            <ProtectedRoute isLoggedIn={isLoggedIn} isAdmin={isAdmin} adminOnly={false}>
+                                <Header />
+                                <UserDashboard />
+                            </ProtectedRoute>
                         }
                     />
                     <Route
                         path="/admin-dashboard"
                         element={
-                            isLoggedIn && isAdmin ? (
-                                <ProtectedRoute>
-                                    <Header />
-                                    <AdminDashboard />
-                                </ProtectedRoute>
-                            ) : (
-                                <Login />
-                            )
+                            <ProtectedRoute isLoggedIn={isLoggedIn} isAdmin={isAdmin} adminOnly={true}>
+                                <Header />
+                                <AdminDashboard />
+                            </ProtectedRoute>
                         }
                     />
                     <Route
                         path="/feed"
                         element={
-                            isLoggedIn && !isAdmin ? (
-                                <ProtectedRoute>
-                                    <Header />
-                                    <Feed />
-                                </ProtectedRoute>
-                            ) : (
-                                <Login />
-                            )
+                            <ProtectedRoute isLoggedIn={isLoggedIn} isAdmin={isAdmin} adminOnly={false}>
+                                <Header />
+                                <Feed />
+                            </ProtectedRoute>
                         }
                     />
                 </Routes>
